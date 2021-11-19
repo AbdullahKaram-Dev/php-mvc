@@ -5,6 +5,7 @@ namespace app\core;
 
 use app\exceptions\ViewNotFoundException;
 use app\exceptions\RouteNotFoundException;
+use app\exceptions\LayoutNotFoundException;
 
 class Router
 {
@@ -51,7 +52,7 @@ class Router
             throw new ViewNotFoundException();
         }
 
-        $viewContent = $this->renderOnlyView($view);
+        $viewContent = $this->renderOnlyView($viewPath);
         return str_replace('{{content}}',$viewContent,$layoutContent);
     }
 
@@ -60,7 +61,7 @@ class Router
         $layoutPath = Application::$ROOT_PATH.'/views/layouts/main.php';
         if (!file_exists($layoutPath)){
             http_response_code(404);
-            throw new ViewNotFoundException();
+            throw new LayoutNotFoundException();
         }
         ob_start();
         include_once $layoutPath;
@@ -70,7 +71,7 @@ class Router
     protected function renderOnlyView($view)
     {
         ob_start();
-        include_once Application::$ROOT_PATH."/views/$view.php";
+        include_once $view;
         return ob_get_clean();
     }
 
