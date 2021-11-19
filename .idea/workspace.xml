@@ -25,10 +25,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="613bda28-0dd0-4148-9ee2-0ffcf17d8da7" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/exceptions/ViewNotFoundException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Request.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Application.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,12 +59,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/core/Exceptions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/exceptions" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\my-framework\exceptions" />
+      <recent name="C:\xampp\htdocs\my-framework\runtime" />
       <recent name="C:\xampp\htdocs\my-framework\public" />
     </key>
   </component>
@@ -83,7 +87,8 @@
       <workItem from="1637282612498" duration="418000" />
       <workItem from="1637284010925" duration="1777000" />
       <workItem from="1637285821242" duration="2113000" />
-      <workItem from="1637287993408" duration="614000" />
+      <workItem from="1637287993408" duration="1772000" />
+      <workItem from="1637289801079" duration="297000" />
     </task>
     <servers />
   </component>
@@ -102,13 +107,17 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1637288128769">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1637289620242">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1637288128769" />
-    <state x="495" y="87" key="NewPhpClassDialog" timestamp="1637288138633">
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1637289620242" />
+    <state x="495" y="87" key="NewPhpClassDialog" timestamp="1637289635469">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="495" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1637288138633" />
+    <state x="495" y="87" key="NewPhpClassDialog/0.0.1366.728@0.0.1366.728" timestamp="1637289635469" />
+    <state x="517" y="287" key="NewPhpFileDialog" timestamp="1637289172118">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="517" y="287" key="NewPhpFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1637289172118" />
   </component>
 </project>

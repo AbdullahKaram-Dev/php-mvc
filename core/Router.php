@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace app\core;
 
+use app\exceptions\ViewNotFoundException;
 use app\exceptions\RouteNotFoundException;
 
 class Router
@@ -15,12 +16,12 @@ class Router
         $this->request = $request;
     }
 
-    public function get(string $route, callable $callback)
+    public function get(string $route,$callback)
     {
         $this->routes['get'][$route] = $callback;
     }
 
-    public function post(string $route, callable $callback)
+    public function post(string $route,$callback)
     {
         $this->routes['post'][$route] = $callback;
     }
@@ -31,8 +32,20 @@ class Router
 
         if($callback === false){
             throw new RouteNotFoundException();
+        } elseif (is_string($callback)) {
+            return  $this->renderView($callback);
         }
         return call_user_func($callback);
+    }
+
+    public function renderView(string $view)
+    {
+        $viewPath = __DIR__.'/../views/'.$view.'.php';
+        if (!file_exists($viewPath)){
+            throw new ViewNotFoundException();
+        }
+
+        require $viewPath;
     }
 
 

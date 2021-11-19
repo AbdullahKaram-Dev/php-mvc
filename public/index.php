@@ -6,9 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = new Application();
 
-$app->router->get('/users',function (){
-    echo 'user route';
-});
+$app->router->get('/users','users');
 
 
 
