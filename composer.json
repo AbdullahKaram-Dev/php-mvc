@@ -6,7 +6,7 @@
   },
 
   "require": {
-
+    "symfony/debug-bundle": "^5.3"
   }
 
 }

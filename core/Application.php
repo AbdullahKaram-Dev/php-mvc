@@ -8,9 +8,11 @@ class Application
 {
     public Router $router;
     public Request $request;
+    public static string $ROOT_PATH;
 
-    public function __construct()
+    public function __construct($ROOT_PATH)
     {
+        self::$ROOT_PATH = $ROOT_PATH;
         $this->request = new Request();
         $this->router = new Router($this->request);
     }
