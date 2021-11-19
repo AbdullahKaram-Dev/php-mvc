@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace app\core;
 
+use app\exceptions\RouteNotFoundException;
+
 class Router
 {
     protected array $routes = [];
@@ -25,7 +27,12 @@ class Router
 
     public function resolve()
     {
-        var_dump($this->request->getPath());
+        $callback = $this->routes[$this->request->getMethod()][$this->request->getPath()] ?? false;
+
+        if($callback === false){
+            throw new RouteNotFoundException();
+        }
+        return call_user_func($callback);
     }
 
 
