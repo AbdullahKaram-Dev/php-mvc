@@ -30,9 +30,8 @@ class Router
     public function resolve()
     {
         $callback = $this->routes[$this->request->getMethod()][$this->request->getPath()] ?? false;
-
         if($callback === false){
-            http_response_code(404);
+            Application::$application->response->setStatusCode(404);
             throw new RouteNotFoundException();
 
         } elseif (is_string($callback)) {
@@ -48,7 +47,7 @@ class Router
         $layoutContent = $this->layoutContent(); 
         $viewPath = Application::$ROOT_PATH.'/views/'.$view.'.php';
         if (!file_exists($viewPath)){
-            http_response_code(404);
+            Application::$application->response->setStatusCode(404);
             throw new ViewNotFoundException();
         }
 
@@ -60,7 +59,7 @@ class Router
     {
         $layoutPath = Application::$ROOT_PATH.'/views/layouts/main.php';
         if (!file_exists($layoutPath)){
-            http_response_code(404);
+            Application::$application->response->setStatusCode(404);
             throw new LayoutNotFoundException();
         }
         ob_start();
