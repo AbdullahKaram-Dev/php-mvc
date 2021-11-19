@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace app\core;
@@ -11,18 +12,20 @@ class Router
 {
     protected array $routes = [];
     public Request $request;
+    public Response $response;
 
-    public function __construct($request)
+    public function __construct(Request $request, Response $response)
     {
         $this->request = $request;
+        $this->response = $response;
     }
-   
-    public function get(string $route,$callback)
+
+    public function get(string $route, $callback)
     {
         $this->routes['get'][$route] = $callback;
     }
 
-    public function post(string $route,$callback)
+    public function post(string $route, $callback)
     {
         $this->routes['post'][$route] = $callback;
     }
@@ -30,36 +33,34 @@ class Router
     public function resolve()
     {
         $callback = $this->routes[$this->request->getMethod()][$this->request->getPath()] ?? false;
-        if($callback === false){
-            Application::$application->response->setStatusCode(404);
+        if ($callback === false) {
+            $this->response->setStatusCode(404);
             throw new RouteNotFoundException();
-
         } elseif (is_string($callback)) {
-              return $this->renderView($callback);
-              exit;
+            return $this->renderView($callback);
+            exit;
         }
-
         return call_user_func($callback);
     }
 
     public function renderView(string $view)
     {
-        $layoutContent = $this->layoutContent(); 
-        $viewPath = Application::$ROOT_PATH.'/views/'.$view.'.php';
-        if (!file_exists($viewPath)){
-            Application::$application->response->setStatusCode(404);
+        $layoutContent = $this->layoutContent();
+        $viewPath = Application::$ROOT_PATH . '/views/' . $view . '.php';
+        if (!file_exists($viewPath)) {
+            $this->response->setStatusCode(404);
             throw new ViewNotFoundException();
         }
 
         $viewContent = $this->renderOnlyView($viewPath);
-        return str_replace('{{content}}',$viewContent,$layoutContent);
+        return str_replace('{{content}}', $viewContent, $layoutContent);
     }
 
     protected function layoutContent()
     {
-        $layoutPath = Application::$ROOT_PATH.'/views/layouts/main.php';
-        if (!file_exists($layoutPath)){
-            Application::$application->response->setStatusCode(404);
+        $layoutPath = Application::$ROOT_PATH . '/views/layouts/main.php';
+        if (!file_exists($layoutPath)) {
+            $this->response->setStatusCode(404);
             throw new LayoutNotFoundException();
         }
         ob_start();
@@ -73,6 +74,4 @@ class Router
         include_once $view;
         return ob_get_clean();
     }
-
-   
 }

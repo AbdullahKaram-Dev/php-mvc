@@ -19,7 +19,7 @@ class Application
         $this->request = new Request();
         self::$application = $this;
         $this->response = new Response();
-        $this->router = new Router($this->request);
+        $this->router = new Router($this->request,$this->response);
     }
 
     public function run()
