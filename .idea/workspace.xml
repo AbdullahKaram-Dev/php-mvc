@@ -25,8 +25,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="613bda28-0dd0-4148-9ee2-0ffcf17d8da7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/exceptions/ViewNotFoundException.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/runtime/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/Application.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Application.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/Router.php" afterDir="false" />
@@ -88,7 +86,7 @@
       <workItem from="1637284010925" duration="1777000" />
       <workItem from="1637285821242" duration="2113000" />
       <workItem from="1637287993408" duration="1772000" />
-      <workItem from="1637289801079" duration="297000" />
+      <workItem from="1637289801079" duration="1582000" />
     </task>
     <servers />
   </component>
@@ -105,6 +103,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1637289620242">

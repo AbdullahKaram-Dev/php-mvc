@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace app\core;
@@ -16,6 +17,10 @@ class Application
 
     public function run()
     {
-        echo $this->router->resolve();
+        try {
+            echo $this->router->resolve();
+        } catch (\Exception $exception) {
+            echo $exception->getMessage();
+        }
     }
 }
