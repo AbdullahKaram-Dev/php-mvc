@@ -3,11 +3,13 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
-class HomeController
+use app\core\Controller;
+
+class HomeController extends Controller
 {
     public function index()
     {
-        return 'index home';
+        return $this->render('home',['name' => 'body']);
     }
 
 }

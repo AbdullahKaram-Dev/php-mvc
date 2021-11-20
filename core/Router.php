@@ -7,6 +7,7 @@ namespace app\core;
 use app\exceptions\ViewNotFoundException;
 use app\exceptions\RouteNotFoundException;
 use app\exceptions\LayoutNotFoundException;
+use Exception;
 
 class Router
 {
@@ -39,11 +40,16 @@ class Router
         } elseif (is_string($callback)) {
             return $this->renderView($callback);
             exit;
+        }elseif (is_array($callback) && class_exists($callback[0])){
+            $callback[0] = new $callback[0]();
+            $callback[1] =  $callback[1];    
+            return call_user_func($callback,$this->request);
         }
-        return call_user_func($callback);
+        
+        throw new Exception("an error accourder with class router");
     }
 
-    public function renderView(string $view)
+    public function renderView(string $view,$params = [])
     {
         $layoutContent = $this->layoutContent();
         $viewPath = Application::$ROOT_PATH . '/views/' . $view . '.php';
@@ -52,7 +58,7 @@ class Router
             throw new ViewNotFoundException();
         }
 
-        $viewContent = $this->renderOnlyView($viewPath);
+        $viewContent = $this->renderOnlyView($viewPath,$params);
         return str_replace('{{content}}', $viewContent, $layoutContent);
     }
 
@@ -68,8 +74,13 @@ class Router
         return ob_get_clean();
     }
 
-    protected function renderOnlyView($view)
+    protected function renderOnlyView($view,$params)
     {
+        foreach($params as $key => $value)
+        {
+            $$key = $value;
+        }
+
         ob_start();
         include_once $view;
         return ob_get_clean();

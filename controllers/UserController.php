@@ -4,20 +4,17 @@ declare(strict_types=1);
 
 namespace app\controllers;
 
-class UserController
+use app\core\Controller;
+
+class UserController extends Controller 
 {
     public function index()
     {
-        return 'user index';
+        return $this->render('users');
     }
 
     public function create()
     {
-        return 'create new user';
-    }
-
-    public function store()
-    {
-        return 'user store';
+        return $this->render('create');
     }
 }
