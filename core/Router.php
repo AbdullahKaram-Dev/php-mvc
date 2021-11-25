@@ -43,9 +43,9 @@ class Router
         }elseif (is_array($callback) && class_exists($callback[0])){
             $callback[0] = new $callback[0]();
             $callback[1] =  $callback[1];    
-            return call_user_func($callback,$this->request);
+            
         }
-        
+        return call_user_func($callback,$this->request);
         throw new Exception("an error accourder with class router");
     }
 

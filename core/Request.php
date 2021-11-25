@@ -41,4 +41,9 @@ class Request
         }
         return $body;
     }
+
+    public function IsMethod(string $method)
+    {
+        return ($this->getMethod() === strtolower($method)) ? true : false;   
+    }
 }
