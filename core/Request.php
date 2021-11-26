@@ -73,6 +73,9 @@ class Request
         return $this->requestBody;
     }
 
+    /**
+     * debug request info 
+     */
     public function dd()
     {
         return dd($this->all());
