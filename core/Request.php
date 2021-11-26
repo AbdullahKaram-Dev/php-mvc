@@ -62,8 +62,19 @@ class Request
         return $this->requestBody = $originalData;
     }
 
-    public function except()
+    public function except($inputs)
     {
-        
+        $originalData = $this->all();
+        foreach((array) $inputs as $value) 
+        {
+            unset($originalData[$value]);
+            $this->requestBody = $originalData;
+        }    
+        return $this->requestBody;
+    }
+
+    public function dd()
+    {
+        return dd($this->all());
     }
 }
