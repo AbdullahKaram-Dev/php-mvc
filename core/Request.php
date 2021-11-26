@@ -52,9 +52,14 @@ class Request
         return ($this->all()[$input]) ?? null;
     }
 
-    public function add()
+    public function add(array $inputs)
     {
-
+        $originalData = $this->all();
+        foreach($inputs as $key => $value) 
+        {
+            $originalData[$key] = $value;
+        }
+        return $this->requestBody = $originalData;
     }
 
     public function except()

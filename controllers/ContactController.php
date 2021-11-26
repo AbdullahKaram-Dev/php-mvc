@@ -15,6 +15,7 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-       dd($request->input('firstname'));
+        $request->add(['age' => 29]);
+        dd($request->all());
     }
 }
