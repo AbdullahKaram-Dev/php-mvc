@@ -9,12 +9,12 @@ use app\core\Request;
 class ContactController extends Controller
 {
     public function create()
-    {
+    { 
         return $this->render('create_contact');
     }
 
     public function store(Request $request)
     {
-       dd($request->all());
+       dd($request->input('firstname'));
     }
 }

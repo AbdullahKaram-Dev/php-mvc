@@ -6,6 +6,7 @@ namespace app\core;
 
 class Request
 {
+    public array $requestBody = [];
     
     public function getPath()
     {
@@ -26,24 +27,38 @@ class Request
 
     public function all()
     {
-        $body = [];
-        if($this->getMethod() === 'get')
+        if($this->IsMethod("get"))
         {
             foreach($_GET as $key => $value)
             {
-                $body[$key] = filter_input(INPUT_GET,$key,FILTER_SANITIZE_SPECIAL_CHARS);
+                $this->requestBody[$key] = filter_input(INPUT_GET,$key,FILTER_SANITIZE_SPECIAL_CHARS);
             }
-        }elseif($this->getMethod() === 'post'){
+        }elseif($this->IsMethod("post")){
             foreach($_POST as $key => $value)
             {
-                $body[$key] = filter_input(INPUT_POST,$key,FILTER_SANITIZE_SPECIAL_CHARS);
+                $this->requestBody[$key] = filter_input(INPUT_POST,$key,FILTER_SANITIZE_SPECIAL_CHARS);
             }
         }
-        return $body;
+        return $this->requestBody;
     }
 
     public function IsMethod(string $method)
     {
         return ($this->getMethod() === strtolower($method)) ? true : false;   
+    }
+
+    public function input(string $input)
+    {
+        return ($this->all()[$input]) ?? null;
+    }
+
+    public function add()
+    {
+
+    }
+
+    public function except()
+    {
+        
     }
 }

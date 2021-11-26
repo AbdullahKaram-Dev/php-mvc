@@ -25,6 +25,4 @@ $app->router->post('/login',[AuthController::class,'index']);
 $app->router->get('/register',[AuthController::class,'register']);
 $app->router->post('/register',[AuthController::class,'register']);
 
-
-
 $app->run();

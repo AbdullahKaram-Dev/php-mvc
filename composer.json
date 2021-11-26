@@ -7,6 +7,11 @@
 
   "require": {
     "symfony/debug-bundle": "^5.3"
+  },
+  "config": {
+    "platform": {
+      "php": "7.4.24"
+    }
   }
 
 }

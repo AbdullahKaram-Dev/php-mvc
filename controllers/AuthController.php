@@ -18,12 +18,9 @@ class AuthController extends Controller
     {
         if($request->IsMethod("GET"))
         {
-            dd('get');
-        }elseif($request->IsMethod("post")){
-
-             dd('post');   
+            return $this->render('register');
         }
-        
+
         return $this->render('register');
     }
 
