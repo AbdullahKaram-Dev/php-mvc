@@ -15,7 +15,6 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->except(['firstname','lastname']));
-        //$request->dd();
+        $request->dd();
     }
 }

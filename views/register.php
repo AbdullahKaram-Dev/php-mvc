@@ -1,4 +1,4 @@
-<form method="POST" action="/contact/create">
+<form method="POST" action="/register">
   <div class="mb-3">
     <label>first name</label>
     <input type="text" name="firstname" class="form-control">
