@@ -5,6 +5,7 @@ namespace app\controllers;
 
 use app\core\Controller;
 use app\core\Request;
+use app\core\validation\Validation;
 
 class ContactController extends Controller
 {
@@ -15,6 +16,16 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
+        // $data = ['email' => '','name' => ''];
+        // $rules = ['email' => ['required','email'],'name' => ['required']];
+
+        dd($request->only(['email','password']));
+
+
+        $Validation = Validation::make($data,$rules);
+        dd($Validation);
+
+
         $request->dd();
     }
 }

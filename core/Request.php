@@ -73,6 +73,19 @@ class Request
         return $this->requestBody;
     }
 
+    public function only(array $inputs)
+    {
+        $askedInputs = [];
+        foreach((array) $inputs as $name) 
+        {
+            if(array_key_exists($name,$this->all()))
+            {
+                $askedInputs[$name] = $this->all()[$name];
+            }
+        }    
+        return $askedInputs;
+    }
+
     /**
      * debug request info 
      */
