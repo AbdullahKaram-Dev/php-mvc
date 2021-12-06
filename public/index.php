@@ -13,9 +13,7 @@ use app\core\Application;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-
 $app = new Application($rootPath);
-
 
 $app->router->get('/',[HomeController::class,'index']);
 $app->router->get('/contact',[ContactController::class,'create']);
