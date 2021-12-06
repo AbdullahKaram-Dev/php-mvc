@@ -1,32 +1,45 @@
 <?php
+
 declare(strict_types=1);
 
 namespace app\core\validation;
+
 use app\core\validation\ValidationStrategy;
 
 class Validation
 {
-    protected static array $errors = [];
-
-    public static function make(array $inputs,array $rules)
+    public static function make(array $inputs, array $rules):array
     {
-        foreach($inputs as $inputName => $inputValue)
-        {
-            foreach($rules[$inputName] as $key => $rule)
-            {
-                $class = 'app\core\validation\\'.ucwords($rule);
-              
-                $errors = (new ValidationStrategy(new $class($inputValue,$inputName)))->validate();
-                if(!empty($errors)){
-                 
-                    static::$errors[$inputName][$key] = $errors;
+        $errors = [];
+
+
+            foreach ($inputs as $inputName => $inputValue) {
+
+
+                foreach ($rules[$inputName] as $key => $rule) {
+
+                    print_r($key);
+
+                    // dd($key);
+
+                    //     $class = 'app\core\validation\\' . ucwords($rule);
+
+
+                    //     $error = (new ValidationStrategy(new $class($inputValue, $inputName)))->validate();
+
+                    //     if (!empty($error)) {
+                    //         dd($inputName[$key]);
+                    //         $errors[$inputName][$key] = $error;
+                    //     }
+                    // } 
                 }
-            }   
-        }
+        
+                dd('here');
 
-        return static::$errors;
+        
+            }
 
+            return $errors;
     }
-
 
 }

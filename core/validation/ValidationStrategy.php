@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace app\core\Validation;
+namespace app\core\validation;
 
 class ValidationStrategy
 {
@@ -12,7 +12,7 @@ class ValidationStrategy
         $this->validation = $validation;
     }
 
-    public function validate()
+    public function validate():string
     {
         return $this->validation->validate();
     }

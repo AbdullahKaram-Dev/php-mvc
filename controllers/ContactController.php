@@ -16,16 +16,13 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        // $data = ['email' => '','name' => ''];
-        // $rules = ['email' => ['required','email'],'name' => ['required']];
+        //dd($request->only(['email','password']));
+        
+        $Validation = Validation::make($request->only(['email','password']),[
+            'email' => ['required'],
+            'password' => ['required']
+        ]);
 
-        dd($request->only(['email','password']));
-
-
-        $Validation = Validation::make($data,$rules);
         dd($Validation);
-
-
-        $request->dd();
     }
 }

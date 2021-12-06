@@ -7,8 +7,8 @@ use app\core\validation\ValidationInterface;
 
 class Required implements ValidationInterface
 {
-    protected $value;
-    protected $name;
+    protected mixed $value;
+    protected string $name;
 
     public function __construct($value,$name)
     {
@@ -18,7 +18,7 @@ class Required implements ValidationInterface
 
     public function validate(): string
     {
-        if($this->value == 0)
+        if(empty($this->value))
             return $this->name . ' is required';
 
         return '';    
