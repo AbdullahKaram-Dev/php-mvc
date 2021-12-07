@@ -4,11 +4,11 @@ $rootPath = dirname(__DIR__);
 define("TRANSLATION_PATH",$rootPath.'/translation/');
 define("USER_LOCALE","en");
 
+use app\controllers\TrnaslationController;
 use app\controllers\ContactController;
 use app\controllers\UserController;
 use app\controllers\HomeController;
 use app\controllers\AuthController;
-use app\controllers\TrnaslationController;
 use app\core\Application;
 
 require __DIR__ . '/../vendor/autoload.php';
