@@ -16,9 +16,10 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
-        $Validation = Validation::make($request->only(['email','password']),[
+        $Validation = Validation::make($request->only(['email','password','avatar']),[
             'email' => ['required'],
-            'password' => ['required']
+            'password' => ['required'],
+            'avatar' => ['image']
         ]);
 
         dd($Validation);
