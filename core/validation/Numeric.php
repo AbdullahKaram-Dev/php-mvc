@@ -19,7 +19,7 @@ class Numeric implements ValidationInterface
     public function validate(): string
     {
         if(!is_numeric($this->value))
-            return $this->name . 'not valid number';
+            return $this->name . ' not valid number';
         return '';
     }
 

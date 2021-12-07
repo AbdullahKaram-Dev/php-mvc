@@ -7,8 +7,8 @@ use app\core\validation\ValidationInterface;
 
 class Required implements ValidationInterface
 {
-    protected mixed $value;
-    protected string $name;
+    protected  $value;
+    protected  $name;
 
     public function __construct($value,$name)
     {
