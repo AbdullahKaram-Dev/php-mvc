@@ -86,11 +86,13 @@ class Request
         return $askedInputs;
     }
 
-    /**
-     * debug request info
-     */
     public function dd()
     {
         return dd($this->all());
+    }
+
+    public function has(string $key)
+    {
+        return (isset($this->all()[$key])) ? true : false;
     }
 }
